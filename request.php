@@ -33,7 +33,7 @@
             Requested date:
             <input type='text' class='form-control' 
                    id='requestedDate' name='requestedDate' 
-                   placeholder='Format: mm/dd/yyyy' 
+                   placeholder='Format: yyyy-mm-dd' 
                    pattern="\d{4}-\d{1,2}-\d{1,2}" 
                    value="" />
           </div>
