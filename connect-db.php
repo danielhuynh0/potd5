@@ -2,11 +2,11 @@
 // Remember to start the database server (or GCP SQL instance) before trying to connect to it
 ////////////////////////////////////////////
 /** S24, PHP (on Google Standard App Engine) connect to MySQL instance (GCP) **/
-// $username = 'root';                       // or your username
-// $password = 'your-root-password';     
-// $host = 'instance-connection-name';       // e.g., 'cs4750:us-east4:db-demo'; 
-// $dbname = 'your-database-name';           // e.g., 'guestbook';
-// $dsn = "mysql:unix_socket=/cloudsql/instance-connection-name;dbname=your-database-name";
+$username = 'root';                       // or your username
+$password = 'cze6kb_harshal';     
+$host = 'potd5-417516:us-east4:potd5-cs4750';       // e.g., 'cs4750:us-east4:db-demo'; 
+$dbname = 'potd5';           // e.g., 'guestbook';
+$dsn = "mysql:unix_socket=/cloudsql/potd5-417516:us-east4:potd5-cs4750;dbname=potd5";
 //       e.g., "mysql:unix_socket=/cloudsql/cs4750:us-east4:db-demo;dbname=guestbook";
 
 // to get instance connection name, go to GCP SQL overview page
@@ -30,11 +30,11 @@
 ////////////////////////////////////////////
 
 /** S24, PHP (on GCP, local XAMPP, or CS server) connect to MySQL (on local XAMPP) **/
-$username = 'your-username';
-$password = 'your-password';
-$host = 'localhost:3306';
-$dbname = 'your-database';    
-$dsn = "mysql:host=$host;dbname=$dbname";  
+// $username = 'your-username';
+// $password = 'your-password';
+// $host = 'localhost:3306';
+// $dbname = 'your-database';    
+// $dsn = "mysql:host=$host;dbname=$dbname";  
 ////////////////////////////////////////////
 
 /** S24, PHP (on GCP, local XAMPP, or CS server) connect to MySQL (on CS server) **/
