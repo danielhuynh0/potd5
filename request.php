@@ -18,9 +18,9 @@
 <?php
 if($_SERVER['REQUEST_METHOD']=='post')
 {
-  if(!empty($_POST['addBTN']))
+  if(!empty($_POST['addBtn']))
   {
-    addRequests($_POST['requestedDate'], $_POST['roomNO'], $_POST['requestedBy'], $_POST['requesteDesc'], $_POST['priority_option']);
+    addRequests($_POST['requestedDate'], $_POST['roomNo'], $_POST['requestedBy'], $_POST['requestDesc'], $_POST['priority_option']);
   }
 
 }
