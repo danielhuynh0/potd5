@@ -15,6 +15,18 @@
   <link rel="stylesheet" href="maintenance-system.css">  
 </head>
 
+<?php
+if($_SERVER['REQUEST_METHOD']=='post')
+{
+  if(!empty($_POST['addBTN']))
+  {
+    addRequests($_POST['requestedDate'], $_POST['roomNO'], $_POST['requestedBy'], $_POST['requesteDesc'], $_POST['priority_option']);
+  }
+
+}
+include('request-db.php');
+?>
+
 <body>  
 <div class="container">
   <div class="row g-3 mt-2">
