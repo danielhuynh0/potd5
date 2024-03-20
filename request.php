@@ -19,13 +19,15 @@
 require_once('request-db.php');
 require_once('connect-db.php');
 
+$list_of_requests = getAllRequests();
+
 if($_SERVER['REQUEST_METHOD']=='POST')
 {
-  if(isset($_POST['addBtn']))
+  if(!empty($_POST['addBtn']))
   {
     addRequests($_POST['requestedDate'], $_POST['roomNo'], $_POST['requestedBy'], $_POST['requestDesc'], $_POST['priority_option']);
   } elseif (isset($_POST['cofmBtn'])) {
-    updateRequest($_POST['requestedDate'], $_POST['roomNo'], $_POST['requestedBy'], $_POST['requestDesc'], $_POST['priority_option']);
+    $request_to_update = getRequestById($_POST['reqId']);
   }
 
 }
@@ -126,23 +128,37 @@ if($_SERVER['REQUEST_METHOD']=='POST')
 <table class="w3-table w3-bordered w3-card-4 center" style="width:100%">
   <thead>
   <tr style="background-color:#B0B0B0">
-    <th width="30%"><b>ReqID</b></th>
-    <th width="30%"><b>Date</b></th>        
-    <th width="30%"><b>Room#</b></th> 
-    <th width="30%"><b>By</b></th>
-    <th width="30%"><b>Description</b></th>        
-    <th width="30%"><b>Priority</b></th> 
+    <th><b>ReqID</b></th>
+    <th><b>Date</b></th>        
+    <th><b>Room#</b></th> 
+    <th><b>By</b></th>
+    <th><b>Description</b></th>        
+    <th><b>Priority</b></th> 
     <th><b>Update?</b></th>
     <th><b>Delete?</b></th>
   </tr>
   </thead>
+  <!-- iterate array of results, display the existing requests -->
+  <?php foreach ($list_of_requests as $req_info): ?>
+  <tr>
+     <td><?php echo $req_info['reqId']; ?></td>
+     <td><?php echo $req_info['reqDate']; ?></td>        
+     <td><?php echo $req_info['roomNumber']; ?></td>          
+     <td><?php echo $req_info['reqBy']; ?></td>
+     <td><?php echo $req_info['repairDesc']; ?></td>        
+     <td><?php echo $req_info['reqPriority']; ?></td>               
+     <td>update?</td>
+     <td>delete?</td>
+  </tr>
+<?php endforeach; ?>  
+
 </table>
 </div>   
 
 
 <br/><br/>
 
-<?php include('footer.html') ?> 
+<!-- <?php include('footer.html') ?>  -->
 
 <!-- <script src='maintenance-system.js'></script> -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
