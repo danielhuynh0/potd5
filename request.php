@@ -30,7 +30,7 @@ if($_SERVER['REQUEST_METHOD']=='POST')
   }
   else if (!empty($_POST['updateBtn']))
   {
-    
+    $request_to_update = getRequestByID($_POST['reqID']);
   }
 
 }
