@@ -1,4 +1,6 @@
 <?php
+require_once('connect-db.php');
+
 function addRequests($reqDate, $roomNumber, $reqBy, $repairDesc, $reqPriority)
 {
     $stmt = $db->prepare("INSERT INTO requests(reqDate, roomNumber, reqBy, repairDesc, reqPriority) VALUES (?, ?, ?, ?, ?)");

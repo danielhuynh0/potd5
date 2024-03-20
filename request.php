@@ -16,15 +16,19 @@
 </head>
 
 <?php
-if($_SERVER['REQUEST_METHOD']=='post')
+require_once('request-db.php');
+require_once('connect-db.php');
+
+if($_SERVER['REQUEST_METHOD']=='POST')
 {
-  if(!empty($_POST['addBTN']))
+  if(isset($_POST['addBtn']))
   {
-    addRequests($_POST['requestedDate'], $_POST['roomNO'], $_POST['requestedBy'], $_POST['requesteDesc'], $_POST['priority_option']);
+    addRequests($_POST['requestedDate'], $_POST['roomNo'], $_POST['requestedBy'], $_POST['requestDesc'], $_POST['priority_option']);
+  } elseif (isset($_POST['cofmBtn'])) {
+    updateRequest($_POST['requestedDate'], $_POST['roomNo'], $_POST['requestedBy'], $_POST['requestDesc'], $_POST['priority_option']);
   }
 
 }
-include('request-db.php');
 ?>
 
 <body>  
@@ -138,7 +142,7 @@ include('request-db.php');
 
 <br/><br/>
 
-<?php // include('footer.html') ?> 
+<?php include('footer.html') ?> 
 
 <!-- <script src='maintenance-system.js'></script> -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
