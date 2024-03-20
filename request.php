@@ -24,8 +24,13 @@ if($_SERVER['REQUEST_METHOD']=='POST')
   if(isset($_POST['addBtn']))
   {
     addRequests($_POST['requestedDate'], $_POST['roomNo'], $_POST['requestedBy'], $_POST['requestDesc'], $_POST['priority_option']);
-  } elseif (isset($_POST['cofmBtn'])) {
+  } 
+  else if (isset($_POST['cofmBtn'])) {
     updateRequest($_POST['requestedDate'], $_POST['roomNo'], $_POST['requestedBy'], $_POST['requestDesc'], $_POST['priority_option']);
+  }
+  else if (!empty($_POST['updateBtn']))
+  {
+    
   }
 
 }
