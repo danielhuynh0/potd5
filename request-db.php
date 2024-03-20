@@ -58,8 +58,10 @@ function getRequestById($id)
 
 function updateRequest($reqId, $reqDate, $roomNumber, $reqBy, $repairDesc, $reqPriority)
 {
+    global $db;
     $stmt = $db->prepare("UPDATE requests SET reqDate = ?, roomNumber = ?, reqBy = ?, repairDesc = ?, reqPriority = ? WHERE reqId = ?");
     $stmt->execute([$reqDate, $roomNumber, $reqBy, $repairDesc, $reqPriority, $reqId]);
+    $stmt->closeCursor();
 }
 
 function deleteRequest($reqId)
