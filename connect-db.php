@@ -2,11 +2,11 @@
 // Remember to start the database server (or GCP SQL instance) before trying to connect to it
 ////////////////////////////////////////////
 /** S24, PHP (on Google Standard App Engine) connect to MySQL instance (GCP) **/
-$username = 'root';                       // or your username
-$password = 'cze6kb_harshal';     
-$host = 'potd5-417516:us-east4:potd5-cs4750';       // e.g., 'cs4750:us-east4:db-demo'; 
-$dbname = 'potd5';           // e.g., 'guestbook';
-$dsn = "mysql:unix_socket=/cloudsql/potd5-417516:us-east4:potd5-cs4750;dbname=potd5";
+// $username = 'root';                       // or your username
+// $password = 'cze6kb_harshal';     
+// $host = 'potd5-417516:us-east4:potd5-cs4750';       // e.g., 'cs4750:us-east4:db-demo'; 
+// $dbname = 'potd5';           // e.g., 'guestbook';
+// $dsn = "mysql:unix_socket=/cloudsql/potd5-417516:us-east4:potd5-cs4750;dbname=potd5";
 //       e.g., "mysql:unix_socket=/cloudsql/cs4750:us-east4:db-demo;dbname=guestbook";
 
 // to get instance connection name, go to GCP SQL overview page
@@ -30,10 +30,10 @@ $dsn = "mysql:unix_socket=/cloudsql/potd5-417516:us-east4:potd5-cs4750;dbname=po
 ////////////////////////////////////////////
 
 /** S24, PHP (on GCP, local XAMPP, or CS server) connect to MySQL (on local XAMPP) **/
-// $username = 'your-username';
-// $password = 'your-password';
+// $username = 'demo2';
+// $password = 'demo2';
 // $host = 'localhost:3306';
-// $dbname = 'your-database';    
+// $dbname = 'maintanence_system';    
 // $dsn = "mysql:host=$host;dbname=$dbname";  
 ////////////////////////////////////////////
 
@@ -78,11 +78,18 @@ $dsn = "mysql:unix_socket=/cloudsql/potd5-417516:us-east4:potd5-cs4750;dbname=po
 /** connect to the database **/
 try 
 {
+
+   // echo "<p>hello</p>";
+   // echo "<p>$dsn</p>";
+   // echo "<p>$username</p>";
+   // echo "<p>$password</p>";
+
+
 //  $db = new PDO("mysql:host=$hostname;dbname=db-demo", $username, $password);
    $db = new PDO($dsn, $username, $password);
    
    // dispaly a message to let us know that we are connected to the database 
-   // echo "<p>You are connected to the database -- host=$host</p>";
+   echo "<p>You are connected to the database -- host=$host</p>";
 }
 catch (PDOException $e)     // handle a PDO exception (errors thrown by the PDO library)
 {
